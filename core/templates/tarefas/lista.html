@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<body>
+
+    <h1>Tarefas</h1>
+
+    <a href="{% url 'nova_tarefa' %}">Nova Tarefa</a>
+
+    <hr>
+
+    {% for tarefa in tarefas %}
+
+        <h2>{{ tarefa.titulo }}</h2>
+
+        <p>Prioridade: {{ tarefa.prioridade }}</p>
+
+        <p>Concluída: {{ tarefa.concluido }}</p>
+
+        <p>Projeto: {{ tarefa.projeto.nome }}</p>
+
+        <a href="{% url 'editar_tarefa' tarefa.id %}">Editar</a>
+
+        <a href="{% url 'excluir_tarefa' tarefa.id %}">Excluir</a>
+
+        <hr>
+
+    {% empty %}
+
+        <p>Nenhuma tarefa cadastrada.</p>
+
+    {% endfor %}
+{% endblock %}
+</body>
+</html>

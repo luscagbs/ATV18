@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <h1>Projetos</h1>
+
+    <a href="{% url 'novo_projeto' %}">
+        Novo Projeto
+    </a>
+
+    <hr>
+
+    {% for projeto in projetos %}
+
+        <h2>{{ projeto.nome }}</h2>
+
+        <p>{{ projeto.descricao }}</p>
+
+        <p>
+            Data de início: {{ projeto.data_inicio }}
+        </p>
+        <a href="{% url 'editar_projeto' projeto.id %}">Editar</a>
+
+        <a href="{% url 'excluir_projeto' projeto.id %}">Excluir</a>
+
+        <hr>
+
+    {% empty %}
+
+        <p>Nenhum projeto cadastrado.</p>
+
+    {% endfor %}
+    
+{% endblock %}
+
+</body>
+</html>

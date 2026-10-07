@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Gestão de Projetos e Tarefas</title>
+</head>
+<body>
+
+    <nav>
+        <a href="{% url 'lista_projetos' %}">Projetos</a>
+        |
+        <a href="{% url 'novo_projeto' %}">Novo Projeto</a>
+        |
+        <a href="{% url 'lista_tarefas' %}">Tarefas</a>
+        |
+        <a href="{% url 'nova_tarefa' %}">Nova Tarefa</a>
+    </nav>
+
+    <hr>
+
+    {% block content %}
+    {% endblock %}
+
+</body>
+</html>
